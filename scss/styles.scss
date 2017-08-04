@@ -1,0 +1,16 @@
+$gray : #afafaf;
+$green : #9ACD32;
+$beige : #FFEFD5;
+
+.panel-group {
+  background: $beige;
+  border: 2px solid $gray;
+  padding: 40px 80px;
+  border-radius: 10px;
+  .panel-heading {
+    font-weight: bold;
+    //text-align: center;
+    background: $gray;
+    color: black;
+  }
+}
