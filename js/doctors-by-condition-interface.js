@@ -4,31 +4,37 @@ var displayDoctorsByCondition = function(medicalIssue, doctorData) {
   $('#showDoctorsByConditionHeader').empty();
   $('#showDoctorsByConditionUl').empty();
   $('#showDoctorsByConditionHeader').append(medicalIssue);
-  var panelTitleA = "";
+  var panel, panelHead, panelTitle, panelA;
   var i = 0;
-  var $target;
   doctorData.forEach(function(doctor) {
-    // panelTitleString = '<a data-toggle="collapse" href="#collapse' + i + '">' + doctor.profile.first_name + ' '  + doctor.profile.last_name + '</a>';
     panel = document.createElement('div');
     panel.setAttribute('class', 'panel panel-default');
+
     panelHead = document.createElement('div');
     panelHead.setAttribute('class', 'panel-heading');
     panelTitle = document.createElement('h4');
     panelTitle.setAttribute('class', 'panel-title');
-    panelTitle.append(doctor.profile.last_name);
+    panelA = document.createElement('a');
+    panelA.setAttribute('data-toggle', 'collapse');
+    panelA.setAttribute('href', '#collapse'+i);
+    panelA.append(doctor.profile.last_name);
+    panelTitle.appendChild(panelA);
     panelHead.appendChild(panelTitle);
     panel.appendChild(panelHead);
+
+    panelCollapse = document.createElement('div');
+    panelCollapse.setAttribute('id', 'collapse'+i);
+    panelCollapse.setAttribute('class', 'panel-collapse collapse');
+    panelBody = document.createElement('div');
+    panelBody.setAttribute('class', 'panel-body');
+    panelBody.append(doctor.profile.bio);
+    panelCollapse.appendChild(panelBody);
+    panel.appendChild(panelCollapse);
+
     $('#doctors').append(panel);
 
-    // panelTitleString += doctor.profile.last_name;
-    // panelTitleString +=
-
     i++
-    // $('#showDoctorsByConditionUl').append('<li class="list-group-item">' + doctor.profile.first_name + " " + doctor.profile.last_name + '</li>');
   });
-  // doctorData.forEach(function(doctor) {
-  //   console.log(doctor.profile.first_name);
-  // })
 
 };
 
