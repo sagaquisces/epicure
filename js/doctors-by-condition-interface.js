@@ -3,11 +3,14 @@ var SearchDoctors = require('./../js/searchDoctors.js').searchDoctorsModule;
 var displayDoctorsByCondition = function(medicalIssue, doctorData) {
   $('#showDoctorsByConditionHeader').empty();
   $('#doctors').empty();
-  $('#showDoctorsByConditionHeader').append(medicalIssue);
+  $('#doctorsAlert').empty();
+  $('#doctorsAlert').removeClass();
 
   if(doctorData.length===0){
-    console.log ("this instance is empty");
+    $('#doctorsAlert').addClass("alert alert-info");
+    $('#doctorsAlert').append('No doctors in this area to address your condition: ' + medicalIssue);
   } else {
+    $('#showDoctorsByConditionHeader').append(medicalIssue);
     var media, mediaLeft, mediaImageSmall, mediaBody, mediaP;
     var panel, panelHead, panelTitle, panelA;
     var panelCollapse, panelBody;
