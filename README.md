@@ -1,7 +1,7 @@
 ## Planning
 
 1. Configuration/dependencies
-  * An API key is required for the [BetterDoctor API](https://developer.betterdoctor.com/) that this website pulls information from. Please visit the link above and click *Get a free API key*. Fill out the form, listing "Epicodus" as the *Organization/Company Name*. Your API key should be found on the front page
+  * An API key is required for the [BetterDoctor API](https://developer.betterdoctor.com/). Please visit the link above and click *Get a free API key*. Fill out the form, listing "Epicodus" as the *Organization/Company Name*. Your API key should be found on the front page
   * Create a file named `.env` at the top level and put this one line in it: `exports.apiKey = "YOUR_API_KEY";`, providing your own API key in the double quotes.
   * When we clone this project, we must navigate to the top of the cloned directory and at the command line run `npm install` and then `bower install` which will, in turn, read from the manifest files and install all dependencies.
   * Then we run `gulp build` followed by `gulp serve` in the terminal.
